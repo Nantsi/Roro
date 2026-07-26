@@ -1,2 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+    background-image: url("Roro_BG.jpg");
+    background-size: 33%;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+h1, h2, p {
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+}

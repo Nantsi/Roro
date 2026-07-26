@@ -33,5 +33,21 @@ class YoutubeService
 
   JSON.parse(response.body)
 end
+
+def current_livestream(channel_id)
+  response = HTTParty.get(
+    "#{BASE_URL}/search",
+    query: {
+      key: @api_key,
+      channelId: channel_id,
+      eventType: "live",
+      type: "video",
+      part: "snippet",
+      maxResults: 1
+    }
+  )
+
+  JSON.parse(response.body)
+end
  
 end

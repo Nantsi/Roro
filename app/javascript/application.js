@@ -34,5 +34,5 @@ const element = document.getElementById("upload-date");
 if (element) {
     const date = new Date(element.dataset.uploadedAt);
 
-    element.textContent = date.toLocaleString();
+    element.textContent = "Uploaded: " + date.toLocaleString();
 }
