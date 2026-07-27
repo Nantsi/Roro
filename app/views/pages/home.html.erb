@@ -52,14 +52,14 @@
 
   <div class="container-text-center" style="padding-top: 40px;">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card h-75" style="background-color: #FDE2EE;">
+        <div class="col-md-4" style=" margin-top: 20px;">
+            <div class="card h-100 youtube-card" style="background-color: #FDE2EE;">
               <img
                 class="card-img-top" style= "max-height: 50%; object-fit: cover; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
                 src="<%= channel["snippet"]["thumbnails"]["high"]["url"] %>"
               >
 
-              <div class="card-body">
+              <div class="card-body text-center">
               
                 <h3>
                     <%= link_to(
@@ -82,8 +82,8 @@
               </div>
             </div>
           </div>
-        <div class="col-md-4">
-                  <div class="card h-75" style="background-color: #FDE2EE;">
+        <div class="col-md-4" style=" margin-top: 20px;">
+                  <div class="card h-100 youtube-card" style="background-color: #FDE2EE;">
                     
                       
 
@@ -93,12 +93,12 @@
                             @latest_video["snippet"]["thumbnails"]["high"]["url"],
                             alt: @latest_video["snippet"]["title"],
                             class: "img-fluid",
-                            style: "object-fit: cover; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
+                            style: "max-height: 100%; object-fit: cover; padding-top: 20px; padding-left: 20px; padding-right: 20px;"
                           ) %>
                         <% end %>
                       </div>
 
-                      <div class="card-body">
+                      <div class="card-body d-flex flex-column text-center">
 
                         <h3>
                           <%= link_to(
@@ -113,38 +113,42 @@
                           data-uploaded-at="<%= @latest_video["snippet"]["publishedAt"] %>">
                         </span>   
 
+                        <div class="text-center mt-auto" style="padding-top: 20px">
+                          <h2>
+                          Latest Upload
+                          </h2>
+                        </div>
+
                         
                     </div>
       </div>
       
     </div>
-    <div class="col-md-4">
-                  <div class="card h-75" style="background-color: #FDE2EE;">
-                    <div class="card-body">
-                      
-                      <div class="text-center">
+    <div class="col-md-4" style="margin-top: 20px;">
+                  <div class="card h-100 youtube-card" style="background-color: #FDE2EE;">
+
+                    <div class="text-center">
                         <%= link_to "https://o8studio.com/", target: "_blank" do %>
                           <%= image_tag(
                             "o8Logo.webp",
                             alt: "o8Logo",
                             class: "img-fluid",
-                            style: "max-height: 25%; object-fit: cover;  padding-left: 20px; padding-right: 20px;"
+                            style: "max-height: 100%; object-fit: cover;  padding-left: 20px; padding-right: 20px;"
                           ) %>
                         <% end %>
                       </div>
+                    <div class="card-body text-center">
+                      
+                      
 
-                        <h3>
+                        <h3 class="card-text">
                           <%= link_to(
                             "o!8 Studio",
                             "https://o8studio.com/",
                             target: "_blank",
                             class: "text-black"
                           ) %>
-                        </h3>
-
-                        <span id="upload-date"
-                          data-uploaded-at="<%= @latest_video["snippet"]["publishedAt"] %>">
-                        </span>   
+                        </h3> 
                     </div>
     </div>
   </div>
