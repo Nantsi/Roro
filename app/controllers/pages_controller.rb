@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     
     @current_video = service.latest_upload(channel["contentDetails"]["relatedPlaylists"]["uploads"])["items"].first
     @latest_video = @current_video
+    @upcoming_streams = []
 
 
     service.latest_upload(channel["contentDetails"]["relatedPlaylists"]["uploads"])["items"].each do |item|
@@ -20,18 +21,19 @@ class PagesController < ApplicationController
 
      details = video["items"].first["liveStreamingDetails"]
 
-     puts item["snippet"]["title"]
+     puts item
      
 
         # Skip scheduled livestreams
         if details && details["scheduledStartTime"] && details["actualStartTime"].nil?
           puts details["scheduledStartTime"]
+          @upcoming_streams << item
           next
         end
         puts item["snippet"]["title"]
         @latest_video = item
 
-        puts video["items"].first["liveStreamingDetails"]
+        puts item
         
         break
     end

@@ -156,6 +156,52 @@
 </div>
 </div>
 </div>
+
+<div class="container-fluid" style="padding-top: 40px;">
+  <div class="row">
+    <h2 class="text-center">Upcoming Streams:</h2>
+  </div>
+      <% @upcoming_streams.each do |stream| %>
+        <div class="card col-md-4 mb-3" style="padding-top: 20px; background-color: #FDE2EE;">
+         
+
+
+                        <div class="text-center" style="padding-top: 20px, padding-bottom: 20px">
+                        <%= link_to video_url, target: "_blank" do %>
+                          <%= image_tag(
+                            stream["snippet"]["thumbnails"]["maxres"]["url"],
+                            alt: stream["snippet"]["title"],
+                            class: "img-fluid",
+                            style: "max-height: 100%; object-fit: cover; padding-top: 20px; padding-left: 20px; padding-right: 20px;"
+                          ) %>
+                        <% end %>
+                      </div>
+
+          <div class="card-body">
+            
+
+            <h3>
+                          <%= link_to(
+                            stream["snippet"]["title"],
+                            video_url,
+                            target: "_blank",
+                            class: "text-black"
+                          ) %>
+                        </h3>
+
+            <% if stream["liveStreamingDetails"] %>
+              <p>
+                Starts:
+                <%= Time.parse(stream["liveStreamingDetails"]["scheduledStartTime"])
+                      .strftime("%d.%m.%Y %H:%M") %>
+              </p>
+            <% end %>
+
+            
+          </div>
+        </div>
+      <% end %>
+</div>
 </div>
 
 <footer class="text-center py-4 border-top" style="background-color: #FFDB7E;">
