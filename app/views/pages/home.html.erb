@@ -54,10 +54,12 @@
     <div class="row">
         <div class="col-md-4" style=" margin-top: 20px;">
             <div class="card h-100 youtube-card" style="background-color: #FDE2EE;">
+
               <img
                 class="card-img-top" style= "max-height: 50%; object-fit: cover; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
                 src="<%= channel["snippet"]["thumbnails"]["high"]["url"] %>"
               >
+              
 
               <div class="card-body text-center">
               
@@ -167,7 +169,7 @@
 
 
                         <div class="text-center" style="padding-top: 20px, padding-bottom: 20px">
-                        <%= link_to video_url, target: "_blank" do %>
+                        <%= link_to "https://www.youtube.com/watch?v=#{stream["snippet"]["resourceId"]["videoId"]}", target: "_blank" do %>
                           <%= image_tag(
                             stream["snippet"]["thumbnails"]["maxres"]["url"],
                             alt: stream["snippet"]["title"],
@@ -183,7 +185,7 @@
             <h3>
                           <%= link_to(
                             stream["snippet"]["title"],
-                            video_url,
+                            "https://www.youtube.com/watch?v=#{stream["snippet"]["resourceId"]["videoId"]}",
                             target: "_blank",
                             class: "text-black"
                           ) %>
