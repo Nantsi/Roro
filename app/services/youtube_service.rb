@@ -27,7 +27,7 @@ class YoutubeService
       key: @api_key,
       playlistId: playlist_id,
       part: "snippet",
-      maxResults: 1
+      maxResults: 10
     }
   )
 
@@ -49,5 +49,19 @@ def current_livestream(channel_id)
 
   JSON.parse(response.body)
 end
+
+def video_details(video_id) 
+
+video_response = HTTParty.get(
+        "https://www.googleapis.com/youtube/v3/videos",
+        query: {
+          part: "snippet,liveStreamingDetails",
+          id: video_id,
+          key: @api_key
+        }
+      )
+
+    JSON.parse(video_response.body)
+  end
  
 end

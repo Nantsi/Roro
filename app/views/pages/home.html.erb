@@ -90,7 +90,7 @@
                        <div class="text-center" style="padding-top: 20px, padding-bottom: 20px">
                         <%= link_to video_url, target: "_blank" do %>
                           <%= image_tag(
-                            @latest_video["snippet"]["thumbnails"]["high"]["url"],
+                            @latest_video["snippet"]["thumbnails"]["maxres"]["url"],
                             alt: @latest_video["snippet"]["title"],
                             class: "img-fluid",
                             style: "max-height: 100%; object-fit: cover; padding-top: 20px; padding-left: 20px; padding-right: 20px;"
