@@ -5,9 +5,9 @@
       <div class="row">
       
       <% if Date.today.month == 8 && Date.today.day == 8 %>
-      <h1 class="text-center">HAPPY BIRTHDAY RORO! <img src="https://media.discordapp.net/stickers/1249656309796835349.webp?size=160&quality=lossless" alt="Roro" width="50" height="50"></h1> 
+      <h1 class="text-center">HAPPY BIRTHDAY RORO! <img src="https://media.discordapp.net/stickers/1249656309796835349.webp?size=160&quality=lossless" alt="RoroCheer" width="50" height="50"></h1> 
       <% else %>
-      <h1 class="text-center">I MISS RORO UUUUUuuuuuUUUUU! <img src="https://media.discordapp.net/stickers/1249654938750160926.webp?size=160&quality=lossless" alt="Roro" width="50" height="50"></h1> 
+      <h1 class="text-center">I MISS RORO UUUUUuuuuuUUUUU! <img src="https://media.discordapp.net/stickers/1249654938750160926.webp?size=160&quality=lossless" alt="RoroCry" width="50" height="50"></h1> 
       
       <% end %>
       
@@ -120,7 +120,9 @@
                         </h3>
 
                         <span id="upload-date"
-                          data-uploaded-at="<%= @latest_video["snippet"]["publishedAt"] %>">
+                          data-uploaded-at="<%= @latest_video["snippet"]["publishedAt"]
+                          %>">
+                          
                         </span>   
 
                         <div class="text-center mt-auto" style="padding-top: 20px">
@@ -187,7 +189,7 @@
                         <% end %>
                       </div>
 
-          <div class="card-body">
+          <div class="card-body d-flex flex-column text-center">
             
 
             <h3>
@@ -199,12 +201,13 @@
                           ) %>
                         </h3>
 
-            <% if stream["liveStreamingDetails"] %>
-              <p>
-                Starts:
-                <%= Time.parse(stream["liveStreamingDetails"]["scheduledStartTime"])
-                      .strftime("%d.%m.%Y %H:%M") %>
-              </p>
+            <% if @upcoming_times %>
+              <span
+                id="upcoming-time"
+                data-uploaded-at="<%= @upcoming_times[@upcoming_streams.index(stream)] %>">
+              </span>
+                        
+
             <% end %>
 
             

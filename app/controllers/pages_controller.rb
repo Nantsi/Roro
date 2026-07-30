@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     @current_video = service.latest_upload(channel["contentDetails"]["relatedPlaylists"]["uploads"])["items"].first
     @latest_video = @current_video
     @upcoming_streams = []
+    @upcoming_times = []
+    
+
 
 
     service.latest_upload(channel["contentDetails"]["relatedPlaylists"]["uploads"])["items"].each do |item|
@@ -21,29 +24,28 @@ class PagesController < ApplicationController
 
      details = video["items"].first["liveStreamingDetails"]
 
-     puts item
      
 
         # Skip scheduled livestreams
         if details && details["scheduledStartTime"] && details["actualStartTime"].nil?
-          puts details["scheduledStartTime"]
           @upcoming_streams << item
+          @upcoming_times << details["scheduledStartTime"]
           next
         end
-        puts item["snippet"]["title"]
         @latest_video = item
 
-        puts item
         
         break
     end
     
+
     if @livestream = service.current_livestream(channel_id)["items"]
       @livestream = service.current_livestream(channel_id)["items"].first
     end
     if @livestream
       video_id = @livestream["id"]["videoId"]
       video_url = "https://www.youtube.com/watch?v=#{video_id}"
+      puts "Current livestream URL: #{video_url}"
     end
 
   end

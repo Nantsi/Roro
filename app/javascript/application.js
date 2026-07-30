@@ -34,5 +34,31 @@ const element = document.getElementById("upload-date");
 if (element) {
     const date = new Date(element.dataset.uploadedAt);
 
-    element.textContent = "Uploaded: " + date.toLocaleString();
+    element.textContent = "Uploaded: " + date.toLocaleString(navigator.language, {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit"
+});
 }
+
+const userTimezone = document.getElementById("upcoming-time")
+
+if (userTimezone) {
+    const date = new Date(userTimezone.dataset.uploadedAt);
+    console.log(userTimezone.dataset.uploadedAt);
+
+    userTimezone.textContent = "Starts: " + date.toLocaleString(navigator.language, {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit"
+});
+
+}
+
+
+document.cookie = `timezone=${userTimezone}; path=/`;
+

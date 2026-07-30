@@ -9,6 +9,21 @@ body {
     background-attachment: fixed;
 }
 
+
+/* Tablets */
+@media (max-width: 992px) {
+  body {
+    background-size: 55%;
+  }
+}
+
+/* Phones */
+@media (max-width: 576px) {
+  body {
+    background-size: 66%;
+  }
+}
+
 h1, h2, p {
     text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
 }
