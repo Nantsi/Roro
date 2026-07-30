@@ -34,9 +34,10 @@
         <%= link_to video_url, target: "_blank" do %>
           <%= image_tag(
             @latest_video["snippet"]["thumbnails"]["maxres"]["url"],
-            style: "max-height: 500px;  padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
+            style: "max-height: 450px;  padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
           ) %>
       <div>
+
         <h3>
           <%= link_to(
             @latest_video["snippet"]["title"],
@@ -45,6 +46,7 @@
             class: "text-black"
           ) %>
         </h3>
+
       </div>
 
           </div>
