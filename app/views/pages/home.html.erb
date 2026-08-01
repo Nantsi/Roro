@@ -36,6 +36,9 @@
             @latest_video["snippet"]["thumbnails"]["maxres"]["url"],
             style: "max-height: 450px;  padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
           ) %>
+
+
+          
       <div>
 
         <h3>
@@ -52,13 +55,15 @@
           </div>
     <% end %>
     <% else %>
-          <h2 class="text-center">
+          <h2 class="text-center" style="padding-bottom: 20px;">
           <span
               id="upload-time"
               data-uploaded-at="<%= @latest_video["snippet"]["publishedAt"] %>">
           </span>
         </h2>
     <% end %>
+
+
   </div>
 
 
@@ -70,7 +75,7 @@
 
   <div class="container-text-center" style="padding-top: 40px;">
     <div class="row">
-        <div class="col-md-4" style=" margin-top: 20px;">
+        <div class="col-md-4" style="margin-top: 20px;">
             <div class="card h-100 youtube-card" style="background-color: #FDE2EE;">
 
               <img
@@ -181,12 +186,15 @@
 </div>
 </div>
 
-<div class="container-fluid" style="padding-top: 40px;">
-  <div class="row">
+<div class="container-fluid" style="padding-top: 40px; padding-bottom: 20px;">
     <h2 class="text-center">Upcoming Streams:</h2>
-  </div>
+      <div class="row">
+
+
       <% @upcoming_streams.each do |stream| %>
-        <div class="card col-md-4 mb-3" style="padding-top: 20px; background-color: #FDE2EE;">
+                <div class="col-md-4" style="margin-top: 20px;">
+
+        <div class="card youtube-card" style="padding-top: 20px; background-color: #FDE2EE;">
          
 
 
@@ -215,7 +223,7 @@
 
             <% if @upcoming_times %>
               <span
-                id="upcoming-time"
+                class="upcoming-time"
                 data-uploaded-at="<%= @upcoming_times[@upcoming_streams.index(stream)] %>">
               </span>
                         
@@ -225,10 +233,12 @@
             
           </div>
         </div>
+        </div>
       <% end %>
 </div>
 </div>
-
+  </div>
+  </div>
 <footer class="text-center py-4 border-top" style="background-color: #FFDB7E;">
   <div class="d-flex justify-content-center gap-4"> 
                             <h3 class="text-center">Roro&apos;s Social Media</h3>

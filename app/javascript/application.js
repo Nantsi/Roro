@@ -43,21 +43,19 @@ if (element) {
 });
 }
 
-const userTimezone = document.getElementById("upcoming-time")
+document.querySelectorAll(".upcoming-time").forEach((element) => {
+    const date = new Date(element.dataset.uploadedAt);
 
-if (userTimezone) {
-    const date = new Date(userTimezone.dataset.uploadedAt);
-    console.log(userTimezone.dataset.uploadedAt);
-
-    userTimezone.textContent = "Starts: " + date.toLocaleString(navigator.language, {
-  year: "numeric",
-  month: "numeric",
-  day: "numeric",
-  hour: "2-digit",
-  minute: "2-digit"
+    element.textContent =
+        "Starts: " +
+        date.toLocaleString(navigator.language, {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
 });
-
-}
 
 
 document.cookie = `timezone=${userTimezone}; path=/`;
