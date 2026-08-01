@@ -32,10 +32,10 @@ class PagesController < ApplicationController
           @upcoming_times << details["scheduledStartTime"]
           next
         end
-        @latest_video = item
+        @latest_video ||= item
 
         
-        break
+        
     end
     
 
