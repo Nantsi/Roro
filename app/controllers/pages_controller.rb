@@ -34,6 +34,11 @@ class PagesController < ApplicationController
         end
         @latest_video ||= item
 
+        @latest_video_time ||= if details && details["actualEndTime"]
+                           details["actualEndTime"]
+                         else
+                           video["snippet"]["publishedAt"]
+                         end
         
         
     end
