@@ -33,7 +33,7 @@
 
         <%= link_to video_url, target: "_blank" do %>
           <%= image_tag(
-            @latest_video["snippet"]["thumbnails"]["maxres"]["url"],
+            @livestream["snippet"]["thumbnails"]["high"]["url"],
             style: "max-height: 450px; max-width: 95%; object-fit: cover; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
           ) %>
 
@@ -43,7 +43,7 @@
 
         <h3>
           <%= link_to(
-            @latest_video["snippet"]["title"],
+            @livestream["snippet"]["title"],
             video_url,
             target: "_blank",
             class: "text-black"
@@ -138,9 +138,10 @@
 
                         <span id="upload-date"
                           data-uploaded-at="<%= @latest_video_time
-                          %>">
-                          
+                          %>">               
                         </span>   
+
+                      
 
                         <div class="text-center mt-auto" style="padding-top: 20px">
                           <h2>
