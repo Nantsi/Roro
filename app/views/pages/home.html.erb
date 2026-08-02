@@ -33,7 +33,7 @@
 
         <%= link_to video_url, target: "_blank" do %>
           <%= image_tag(
-            @livestream["snippet"]["thumbnails"]["high"]["url"],
+            @current_video["snippet"]["thumbnails"]["maxres"]["url"],
             style: "max-height: 450px; max-width: 95%; object-fit: cover; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;"
           ) %>
 
