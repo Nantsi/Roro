@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
     service = YoutubeService.new
     
-    channel_id = "UC55-Y4cBl6alNaaOVVEYgSA"
+    channel_id = "UC_lUyHT9gyGffD15oNaFRgw"
     @channel = service.channel(channel_id)
     channel = @channel["items"].first
     
